@@ -25,5 +25,4 @@ urlpatterns = [
     url(r'^user/', include('allauth.urls')),
     url(r'^photos/', include('photos.urls')),
     url(r'^$', FrontpageView.as_view()),
-]
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
