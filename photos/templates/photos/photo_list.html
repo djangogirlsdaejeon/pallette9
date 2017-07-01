@@ -11,13 +11,16 @@
             <div class="photo">
                 <div class="media" style="background-image: url({{ photo.pic.url }})"></div>
                 <div class="caption">{{photo.contents}}</div>
-                {{photo.created_date}}
-
+                <div class="created-date">{{photo.created_date |date:"Y. m. d"}}</div>
                 <div class="color-tag" style="background-color: #{{photo.color_tag}}"></div>
             </div>
         </li>
     {% empty %}
-        <li>No photos yet.</li>
+        <li>
+            <div class="empty-photo">
+                <img src="/static/empty_photo.png" style="width: 170px; padding: 70px 100px;">
+            </div>
+        </li>
     {% endfor %}
     </ul>
 
