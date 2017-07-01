@@ -9,4 +9,4 @@ class MyPhotoList(ListView):
     template_name = 'photos/feed-user.html'
 
     def get_queryset(self):
-        return Photo.objects.filter(author=self.request.user)
+        return Photo.objects.filter(author=self.request.user).order_by('-modify_date')

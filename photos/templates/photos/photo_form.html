@@ -1,8 +1,71 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
-        {{ form.as_p }}
+    <form action="" method="post" enctype="multipart/form-data" id="app">{% csrf_token %}
+        
+
+        {% for field in form %}
+            <p{{ field.row_attrs }}>
+                
+                {% if field.name == 'color_tag' %}
+                    <color-picker v-model="color"></color-picker>
+                {% else %}
+                    {{ field.label_tag }}
+                    {{ field }}
+                {% endif %}
+
+                {% if field.help_text %}<span class="help">{{ field.help_text }}</span>{% endif %}
+            </p>
+            {{ field.errors }}
+        {% endfor %}
+
         <input type="submit" class="btn" value="Submit" />
     </form>
+
+    <script type="text/x-template" id="color-template">
+        <div class="color-picker">
+            <input type="hidden" name="color_tag" v-model="value">            
+            <div v-for="color in availableColors" v-bind:class="{selected: isSelected(color)}" class="color" v-bind:style="{backgroundColor: '#'+color}" v-on:click="updateValue(color)"></div>
+        </div>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+    <script>
+Vue.component('color-picker', {
+  props: ['value'],
+  template: '#color-template',
+  replace: true,
+  data: function () {
+    return {
+      value: '000000',
+      availableColors: [
+        'F44336',
+        'F4A1BE',
+        '9575CD',
+        '64B5F6',
+        '4C4F51',
+        '81C784',
+        'F5E25B',
+        'E3E7EA',
+        'FFB74D'
+      ]
+    }
+  },
+  methods: {
+    updateValue: function (value) {
+      this.$emit('input', value)
+    },
+    isSelected(color) {
+        return this.value === color;
+    }
+  }
+});
+
+var vm = new Vue({
+  el: '#app',
+  data: {
+    color: "4C4F51"
+  }
+});
+    </script>
 {% endblock %}
