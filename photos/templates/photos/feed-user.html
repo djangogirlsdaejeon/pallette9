@@ -8,4 +8,13 @@
         <p><a href="{% url 'create' %}" class="btn">+</a></p>
     {% endif %}
 
+    <div>
+        <div class="color-picker">
+            <a class="color color-rainbow {% if color == '' %}selected{% endif %}" href="?color="></a>
+        {% for col in available_colors %}
+            <a class="color {% if color == col %}selected{% endif %}" href="?color={{col}}" style="background-color: #{{col}}"></a>
+        {% endfor %}
+        </div>
+    </div>
+
 {% endblock %}

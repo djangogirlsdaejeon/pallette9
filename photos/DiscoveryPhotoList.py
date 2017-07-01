@@ -17,5 +17,5 @@ class DiscoveryPhotoList(ListView):
     def get_queryset(self):
         color = self.request.GET.get('color', False)
         if color:
-            return Photo.objects.filter(color_tag=color)
-        return Photo.objects.all()
+            return Photo.objects.filter(color_tag=color).order_by('-modify_date')
+        return Photo.objects.all().order_by('-modify_date')
