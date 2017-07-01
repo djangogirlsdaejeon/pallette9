@@ -11,7 +11,11 @@
             <div class="photo">
                 <div class="media" style="background-image: url({{ photo.pic.url }})"></div>
                 <div class="caption">{{photo.contents}}</div>
-                <div class="created-date">{{photo.created_date |date:"Y. m. d"}}</div>
+                <p style="text-align: left; margin: 0px; padding-top: 10px;">
+                    #{{photo.author.username}}
+                    <span style="float: right">{{photo.created_date |date:"Y. m. d"}}</span>
+                </p>
+
                 <div class="color-tag" style="background-color: #{{photo.color_tag}}"></div>
             </div>
         </li>
