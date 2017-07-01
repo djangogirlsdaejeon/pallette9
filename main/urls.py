@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
+
 from views import FrontpageView
 
 urlpatterns = [
@@ -23,3 +26,4 @@ urlpatterns = [
     url(r'^photos/', include('photos.urls')),
     url(r'^$', FrontpageView.as_view()),
 ]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
