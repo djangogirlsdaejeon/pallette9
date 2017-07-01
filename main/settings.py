@@ -142,3 +142,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 SITE_ID = 1
+
+LOGIN_REDIRECT_URL = "/photos/"
+ACCOUNT_LOGOUT_ON_GET = True

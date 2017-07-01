@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+  <ul class="btn-list">
+{% if user.is_authenticated %}
+<li><a href="{% url 'account_email' %}" class="btn">Change E-mail</a></li>
+<li><a href="{% url 'account_logout' %}" class="btn">Sign Out</a></li>
+{% else %}
+<li><a href="{% url 'account_login' %}" class="btn">Sign In</a></li>
+<li><a href="{% url 'account_signup' %}" class="btn">Sign Up</a></li>
+{% endif %}
+  </ul>
+  
+{% endblock %}

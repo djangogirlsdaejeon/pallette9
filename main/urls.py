@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-
+from views import FrontpageView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user/', include('allauth.urls')),
     url(r'^photos/', include('photos.urls')),
+    url(r'^$', FrontpageView.as_view()),
 ]

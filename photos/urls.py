@@ -19,5 +19,5 @@ from . import views
 urlpatterns = [
     url(r'^$', views.photo, name='list'),
     url(r'^new/$', views.photoCreate, name='create'),
-    url(r'^discover/$', views.discover, name='list_discover'),
+#    url(r'^discover/$', views.discover, name='list_discover'),
 ]
