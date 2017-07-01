@@ -17,9 +17,10 @@ from django.conf.urls import include, url
 from . import views
 from .MyPhotoList import MyPhotoList
 from .PhotoCreate import PhotoCreate
+from .DiscoveryPhotoList import DiscoveryPhotoList
 
 urlpatterns = [
     url(r'^$', MyPhotoList.as_view(), name='list'),
-    url(r'^create/$', PhotoCreate.as_view() , name='create'),
-    #url(r'^discover/$', views.discover, name='list_discover'),
+    url(r'^create/$', PhotoCreate.as_view(), name='create'),
+    url(r'^discover/$', DiscoveryPhotoList.as_view(), name='list_discover'),
 ]
