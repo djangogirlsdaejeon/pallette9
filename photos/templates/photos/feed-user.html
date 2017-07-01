@@ -1,0 +1,11 @@
+{% extends "photos/photo_list.html" %}
+
+{% block feed_top %}
+    <a href="{% url 'list' %}">My Palette</a>
+    <a href="{% url 'list_discover' %}">People Palette</a>
+    
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'create' %}" class="btn">+</a></p>
+    {% endif %}
+
+{% endblock %}

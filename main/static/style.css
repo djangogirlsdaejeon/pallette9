@@ -92,3 +92,31 @@ body {
     width: 50px;
     height: 20px;
 }
+
+
+
+.color-picker {
+    font-size: 30px;
+    line-height: 0;
+    display: inline-block;
+    border-radius: .75em;
+    padding: 3px;
+    text-align: center;
+}
+.color-picker .color {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 100%;
+    cursor: pointer;
+    margin: 3px;
+
+    vertical-align: middle;
+}
+.color-rainbow {
+    background: linear-gradient(135deg, red, orange , yellow, green, cyan, violet, #9575CD);
+}
+.color-picker .color.selected {
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #5A3731;
+}
