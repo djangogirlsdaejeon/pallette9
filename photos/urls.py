@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from . import views
-from .PhotoList import PhotoList
-from .PhoteCreate import PhotoCreate
+from .MyPhotoList import MyPhotoList
+from .PhotoCreate import PhotoCreate
 
 urlpatterns = [
-    url(r'^$', PhotoList.as_view(), name='list'),
+    url(r'^$', MyPhotoList.as_view(), name='list'),
     url(r'^create/$', PhotoCreate.as_view() , name='create'),
     #url(r'^discover/$', views.discover, name='list_discover'),
 ]
