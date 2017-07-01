@@ -1,16 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Palette9(</title>
-</head>
-<body>
-<h1>Articles</h1>
+{% extends "base.html" %}
+
+{% block body %}
+
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'create' %}" class="btn">+</a></p>
+    {% endif %}
+
     <ul>
-    {% for article in object_list %}
-        <li><img src="{{ article.pic.url }}"></li>
+    {% for photo in object_list %}
+        <li>
+            <div class="photo">
+                <div class="media" style="background-image: url({{ photo.pic.url }})"></div>
+                <div class="caption">{{photo.contents}}</div>
+                {{photo.created_date}}
+
+                <div class="color-tag" style="background-color: #{{photo.color_tag}}"></div>
+            </div>
+        </li>
     {% empty %}
-        <li>No articles yet.</li>
+        <li>No photos yet.</li>
     {% endfor %}
     </ul>
 
@@ -37,5 +45,5 @@
       </ul>
     {% endif %}
     <!-- //paging -->
-</body>
-</html>
+  
+{% endblock %}

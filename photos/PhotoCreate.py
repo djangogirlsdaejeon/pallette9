@@ -4,7 +4,7 @@ from .models import Photo
 
 class PhotoCreate(CreateView):
     model = Photo
-    fields = ['contents', 'pic']
+    fields = ['pic', 'color_tag', 'contents',]
 
     def form_valid(self, form):
         form.instance.author = self.request.user

@@ -11,5 +11,10 @@
 <li><a href="{% url 'account_signup' %}" class="btn">Sign Up</a></li>
 {% endif %}
   </ul>
+
+{% if user.is_authenticated %}
+    Hello, {{user}}!
+    <a href="{% url 'list' %}">Photos</a>
+{% endif %}
   
 {% endblock %}

@@ -16,7 +16,7 @@ caption, th, td {
 	font-weight: normal;
 }
 input, textarea, select {
-	font-size: 110%;
+	font-size: 100%;
 	line-height: 1.1;
 }
 abbr, acronym {
@@ -35,7 +35,9 @@ body {
     width: 200px;
 }
 
-.btn {
+.btn, .primaryAction, .secondaryAction {
+    border: 0;
+    font-size: 1em;
     line-height: 1.0;
     padding: .75em 2em;
     border-radius: 3px;
@@ -43,6 +45,11 @@ body {
     color: #fff;
     display: inline-block;
     text-decoration: none;
+}
+
+.secondaryAction {
+    background-color: #f0f0f0;
+    color: #333;
 }
 
 
@@ -54,4 +61,34 @@ body {
 .footer {
     font-size: .9em;
     margin-top: 30px;
+}
+
+.photo {
+    border: 1px solid #aaa;
+    background-color: #fff;
+    max-width: 350px;
+    padding: 20px;
+    position: relative;
+    margin-bottom: 40px;
+}
+.media {
+    width: 100%;
+    padding-top: 100%;
+    background: transparent no-repeat 50% 50%;
+    background-size: 100% auto;
+}
+
+.caption {
+    padding: 20px 20px 0;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.color-tag {
+    position: absolute;
+    top: 10px;
+    left: 100%;
+    transform: translateX(-10px);
+    width: 50px;
+    height: 20px;
 }

@@ -5,7 +5,7 @@ from .models import Photo
 
 class MyPhotoList(ListView):
     model = Photo
-    paginate_by = 1
+    paginate_by = 10
 
     def get_queryset(self):
         return Photo.objects.filter(author=self.request.user)
